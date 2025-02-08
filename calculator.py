@@ -1,51 +1,44 @@
-# question 1 task 1
+# Question 1 task 1
 
-import pdb
 
 def addition(a, b):
-    return a+b
-sum = addition(1,1)
-print(sum)
+    return a + b
 
-def subtraction(a,b):
+def subtraction(a, b):
     return a - b
-difference = subtraction(1,1)
-print(difference)
 
 def multiplication(a, b):
     return a * b
-product = multiplication(1, 1)
-print(product)
 
 def division(a, b):
+    if b == 0: 
+        return "Error: Division by zero is not allowed."
     return a / b
-quotient = division(1, 1)
-print(quotient)
 
 
-# question 1 task 2
+# Question 1 task 2
+desired_operation = input("What operation would you like to use? (addition, subtraction, multiplication, division): ").lower()
 
-desired_operation = input("What operation would you like to use?")
-a = float(input("Enter the first number you would like to use: "))
-b = float(input("Enter the second number you would like to use: "))
+if desired_operation not in ["addition", "subtraction", "multiplication", "division"]:
+    print("Invalid operation. Please choose a valid operation.")
+else:
+    a = float(input("Enter the first number you would like to use: "))
+    b = float(input("Enter the second number you would like to use: "))
 
-if desired_operation == "addition":
-    result = a + b
+    if desired_operation == "addition":
+        result = addition(a, b)
+    elif desired_operation == "subtraction":
+        result = subtraction(a, b)
+    elif desired_operation == "multiplication":
+        result = multiplication(a, b)
+    elif desired_operation == "division":
+        result = division(a, b)
 
-elif desired_operation == "subtraction":
-    result = a - b
-
-elif desired_operation == "multiplication":
-    result = a * b
-
-# question 1 task 2 and 3
-elif desired_operation == "division":
-    if a or b == 0:
-        print("Zero division invalid")
+    # Question 1 task 3
+    if isinstance(result, str):
+        print(result)
     else:
-        result = a / b
-
-print(f"Result: {result}")
+        print(f"Result: {result}")
 
 
 
